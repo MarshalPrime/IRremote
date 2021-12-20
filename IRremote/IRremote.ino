@@ -1,3 +1,4 @@
+#include"IRremote/IRremote.h"
 #include <IRremote.h>
 #include <Servo.h>
 #define Button_1 0xFD08F7
@@ -8,7 +9,7 @@ Servo servo;
 const int RECV = 3;//sensor pin
 int lastvalue;
 
-// IR Receiver and Results 
+// IR Receiver and Results
 IRrecv irrecv(RECV);
 decode_results results;
 
@@ -30,11 +31,11 @@ void loop(){
           results.value=lastvalue;
   }
     switch(results.value){
-      
+
       case Button_1: digitalWrite(5,HIGH);
       servo.write(90);
       break;
-      case Button_2: 
+      case Button_2:
       digitalWrite(5,LOW);
       digitalWrite(4,LOW);
       digitalWrite(6,LOW);
